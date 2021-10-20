@@ -1,0 +1,27 @@
+package com.app.service.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+
+import com.app.converter.UserConverter;
+import com.app.dto.UserDTO;
+import com.app.entity.UserEntity;
+import com.app.repository.UserRepository;
+import com.app.service.IUserService;
+
+@Service
+@Component
+public class UserService implements IUserService {
+	@Autowired
+	private UserRepository userRepository;
+	@Autowired
+	private UserConverter userConverter;
+	@Autowired
+	public UserDTO save(UserDTO userDTO) {
+		UserEntity userEntity = userConverter.toEntity(userDTO);
+		userEntity = userRepository.save(userEntity);
+		return userConverter.toDTO(userEntity);
+	}
+
+}

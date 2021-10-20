@@ -1,0 +1,53 @@
+import java.util.Scanner;
+
+import unitech.esb.dng.api.DNGApiUtil;
+import unitech.esb.dng.common.UniConstant;
+
+public class MainTest {
+
+	public static void main(String[] args) {
+		double ketqua = 0;
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Moi ban nhap Number1 ");
+		int number1 = scanner.nextInt();
+		scanner.nextLine();
+		System.out.println("Moi ban nhap Number2 ");
+		int number2 = scanner.nextInt();
+		scanner.nextLine();
+		System.out.println("Moi ban nhap phep tinh ");
+		String pheptinh = scanner.nextLine();
+		scanner.close();
+
+		switch (pheptinh) {
+		case "+":
+			ketqua = number1 + number2;
+		//	System.out.println("Kết quả của phép cộng này là : " + ketqua);
+			break;
+		case "-":
+			ketqua = number1 - number2;
+			//System.out.println("Kết quả của phép trừ này là : " + ketqua);
+			break;
+		case "x":
+			ketqua = number1 * number2;
+			//System.out.println("Kết quả của phép nhân này là : " + ketqua);
+			break;
+		case "/":
+			ketqua = number1 / number2;
+			//System.out.println("Kết quả của phép chia này là : " + ketqua);
+			break;
+		
+
+		default:
+			System.out.println("nhap sai ");
+			break;
+			
+		}
+		System.out.println("number1: "+ number1);
+		System.out.println("pheptinh: "+ pheptinh);
+		System.out.println("number2: "+ number2);
+		System.out.println("ketqua: "+ ketqua);
+		System.out.println("------------------------------");
+	    System.out.printf("%d %s %d = %f", number1,pheptinh,number2,ketqua);
+		//System.out.println("Kết quả của phép tính này là : " + ketqua);
+	}
+}
